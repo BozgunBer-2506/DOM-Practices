@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+#app {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.text {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+#content {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+#demo-image {
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.box {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.box.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.box.highlight {
+    border: 3px solid #ffc107;
+}
+
+#item-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: #e9ecef;
+}
+
+.item.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+.item.done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.item-text {
+    flex: 1;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+#demo-section {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+#click-count {
+    font-weight: bold;
+    font-size: 24px;
+    color: #007bff;
+}
+
+<link rel="stylesheet" href="style.css">
