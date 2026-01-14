@@ -22,7 +22,7 @@ console.log('Neue Content:', contentBox.innerHTML);
 
 // 5. Ändere das Bild
 const demoImg = document.querySelector('#demo-image');
-demoImg.src = 'https://via.placeholder.com/200x100';
+demoImg.src = 'https://picsum.photos/200/100';
 demoImg.alt = 'Geändertes Bild';
 console.log('Neues Bild src:', demoImg.src);
 
