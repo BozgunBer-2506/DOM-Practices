@@ -1,43 +1,52 @@
-// TEIL 8: Event Delegation
+// TEIL 9: Data Attributes
 
-console.log('=== TEIL 8 START ===');
+console.log('=== TEIL 9 START ===');
 
-const itemList = document.querySelector('#item-list');
+const dataItems = document.querySelectorAll('#item-list .item');
 
-console.log('Item-Liste selektiert:', itemList);
+console.log('Alle Items:', dataItems.length);
+console.log('');
 
-// ===== EIN Event Listener für alle Aktionen in der Liste =====
-itemList.addEventListener('click', (event) => {
-    console.log('Geklicktes Element:', event.target);
-    console.log('Element-Klassen:', event.target.classList);
+// ===== DATA ATTRIBUTES AUSLESEN UND SETZEN =====
+dataItems.forEach((item, index) => {
+    // 1. Lies die data-id jedes Items aus
+    const itemId = item.dataset.id;
+    console.log(`Item ${index + 1} hat ID:`, itemId);
     
-    // 1. Wenn Item-Text geklickt wurde: Toggle "done" Klasse
-    if (event.target.classList.contains('item-text')) {
-        const parentItem = event.target.closest('.item');
-        parentItem.classList.toggle('done');
-        console.log('Item-Text geklickt:', event.target.textContent);
-    }
+    // 2. Füge ein neues data-Attribut hinzu: data-created mit aktuellem Timestamp
+    item.dataset.created = Date.now();
+    console.log(`Item ${index + 1} created-Timestamp:`, item.dataset.created);
     
-    // 2. Wenn Delete-Button geklickt wurde: Item entfernen
-    if (event.target.classList.contains('delete-btn')) {
-        const itemToDelete = event.target.closest('.item');
-        const itemText = itemToDelete.querySelector('.item-text').textContent;
-        
-        itemToDelete.remove();
-        console.log('Item gelöscht mit ID:', event.target.dataset.id);
-        console.log('Gelöschter Text:', itemText);
+    // 3. Füge data-index hinzu mit dem aktuellen Index
+    item.dataset.index = index;
+    console.log(`Item ${index + 1} index:`, item.dataset.index);
+});
+
+console.log('');
+console.log('--- Alle Data-Attribute hinzugefügt ---');
+console.log('');
+
+// ===== EVENT DELEGATION: Bei Klick alle data-Attribute anzeigen =====
+const itemListEl = document.querySelector('#item-list');
+
+itemListEl.addEventListener('click', (event) => {
+    const clickedItem = event.target.closest('.item');
+    
+    if (clickedItem) {
+        console.log('');
+        console.log('=== ITEM GEKLICKT ===');
+        console.log('Alle data-Attribute:', clickedItem.dataset);
+        console.log('Als Objekt:', { ...clickedItem.dataset });
+        console.log('');
+        console.log('Einzelne Attribute:');
+        console.log('- data-id:', clickedItem.dataset.id);
+        console.log('- data-created:', clickedItem.dataset.created);
+        console.log('- data-index:', clickedItem.dataset.index);
+        console.log('');
     }
 });
 
-console.log('Event Delegation Listener hinzugefügt');
+console.log('Click listener für data-Attribute hinzugefügt');
 
-// ===== ERKLÄRUNG: Event Bubbling =====
 console.log('');
-console.log('=== EVENT DELEGATION ERKLÄRUNG ===');
-console.log('Event Delegation nutzt Event Bubbling:');
-console.log('- Klick auf Button → Event steigt zum Parent auf');
-console.log('- Der Listener auf #item-list fängt ALLE Klicks ab');
-console.log('- Auch auf dynamisch hinzugefügten Elementen!');
-console.log('');
-
-console.log('=== TEIL 8 FERTIG ===');
+console.log('=== TEIL 9 FERTIG ===');
