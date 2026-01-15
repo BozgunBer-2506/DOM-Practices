@@ -25,5 +25,3 @@ decrementBtn.addEventListener('click', () => {
         countDisplay.textContent = counter;
     }
 });
-
-// Ende
